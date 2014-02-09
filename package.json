@@ -1,22 +1,42 @@
 {
   "name": "grunt-jsonschema",
+  "description": "Simple and fast JSON schema validator for grunt.",
   "version": "0.0.0",
-  "description": "jsonschema task for grunt.",
-  "main": "app/",
+  "homepage": "https://github.com/richistron/grunt-jsonschema",
+  "author": {
+    "name": "Ricardo Rivas G.",
+    "email": "richistron@gmail.com",
+    "url": "http://richistron.com"
+  },
   "repository": {
     "type": "git",
-    "url": "git@github.com:richistron/jsonschema.git"
+    "url": "git://github.com/richistron/grunt-jsonschema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/richistron/grunt-jsonschema/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/richistron/grunt-jsonschema/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
   },
   "keywords": [
-    "grunt"
-  ],
-  "author": {
-    "name": "Ricardo Rivas González",
-    "email": "richistron@gmail.com",
-    "url": "https://github.com/richistron"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/richistron/jsonschema/issues"
-  }
+    "gruntplugin"
+  ]
 }
