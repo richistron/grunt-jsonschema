@@ -1,0 +1,22 @@
+{
+  "name": "grunt-jsonschema",
+  "version": "0.0.0",
+  "description": "jsonschema task for grunt.",
+  "main": "app/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:richistron/jsonschema.git"
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "author": {
+    "name": "Ricardo Rivas González",
+    "email": "richistron@gmail.com",
+    "url": "https://github.com/richistron"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richistron/jsonschema/issues"
+  }
+}
