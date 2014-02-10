@@ -92,10 +92,25 @@ grunt.initConfig({
   jsonschema: {
     all:{
       options: {
+        schema: 'test/schemas/person.json',
         files: [
           'test/files/person.json',
           'test/files/person2.json'
-        ],
+        ]
+      }
+    }
+  }
+});
+```
+
+### One file and Complex Schema
+
+```js
+grunt.initConfig({
+  jsonschema: {
+    all:{
+      options: {
+        file: 'test/files/person.json',
         schema: {
           main: 'test/schemas/person_ref.json',
           refs: [
@@ -108,14 +123,17 @@ grunt.initConfig({
 });
 ```
 
-### Complex Schema
+### Multiple files and Complex Schema
 
 ```js
 grunt.initConfig({
   jsonschema: {
     all:{
       options: {
-        file: 'test/files/person.json',
+        files: [
+          'test/files/person.json',
+          'test/files/person2.json'
+        ],
         schema: {
           main: 'test/schemas/person_ref.json',
           refs: [
