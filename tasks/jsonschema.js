@@ -18,19 +18,12 @@ module.exports = function(grunt) {
 
     var
     _,
-    options,
     displayErrors,
     readFile,
     validate,
     Validator;
 
     _ = require('underscore');
-
-    options = _.extend({
-      files: null,
-      file: null,
-      schema: null
-    },this.options());
 
     // function display errors
     displayErrors = function(v){
@@ -65,6 +58,7 @@ module.exports = function(grunt) {
 
     // function validate
     validate = function(o){
+      // grunt.log.write('options:',o);
       var
       Validator,
       v,
@@ -83,25 +77,60 @@ module.exports = function(grunt) {
       }
 
       if(typeof o.file === 'string' && typeof o.schema === 'string'){
+        grunt.log.write('valitation type: single');
         json = readFile(o.file);
         schema = readFile(o.schema);
         validation = v.validate(json, schema);
         displayErrors(validation);
+        return true;
       }
 
-      if(typeof o.files === 'object' && o.files !== null){
-        _.each(o.files,function(item,index){
+      if(typeof o.files === 'array' && o.files !== null && typeof o.schema !== 'string'){
+        grunt.log.write('valitation type: multiple files and multiple schemas');
+        _.each(o.files,function(item){
           json = readFile(item.file);
           schema = readFile(item.schema);
           validation = v.validate(json, schema);
           displayErrors(validation);
         });
+        return true;
+      }
+
+      if(typeof o.files === 'object' && o.files !== null && typeof o.schema === 'string'){
+        grunt.log.write('valitation type: multiple files one schema');
+        _.each(o.files,function(item){
+          json = readFile(item);
+          schema = readFile(o.schema);
+          validation = v.validate(json, schema);
+          displayErrors(validation);
+        });
+        return true;
       }
 
 
-      if(typeof o.schema === 'object'){
-        if(o.file !== null){
-          path = o.file;
+      if(typeof o.schema === 'object' && o.file !== null){
+        grunt.log.write('valitation type: one file complex schema');
+        path = o.file;
+        json = readFile(path);
+        schema = readFile(o.schema.main);
+        if(o.schema.refs !== undefined && o.schema.refs !== null){
+          _.each(o.schema.refs,function(ref){
+            var schemaTemplate = readFile(ref);
+            v.addSchema(schemaTemplate, schemaTemplate.id);
+          });
+        }else{
+          grunt.log.warn('options.schema.refs is not defined');
+          return false;
+        }
+        validation = v.validate(json, schema);
+        displayErrors(validation);
+        return true;
+      }
+
+      if(typeof o.schema === 'object' && o.files !== null){
+        grunt.log.write('valitation type: multiple files complex schema');
+        _.each(o.files,function(file){
+          path = file;
           json = readFile(path);
           schema = readFile(o.schema.main);
           if(o.schema.refs !== undefined && o.schema.refs !== null){
@@ -115,12 +144,17 @@ module.exports = function(grunt) {
           }
           validation = v.validate(json, schema);
           displayErrors(validation);
-        }
+        });
+        return true;
       }
 
     };
 
-    return validate(options);
+    return validate(_.extend({
+      files: null,
+      file: null,
+      schema: null
+    },this.options()));
 
   });
 

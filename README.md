@@ -26,59 +26,105 @@ In your project's Gruntfile, add a section named `jsonschema` to the data object
 grunt.initConfig({
   jsonschema: {
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+      file: 'test/files/person.json',
+      schema: 'test/schemas/person.json'
+    }
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
+#### options.file
 Type: `String`
-Default value: `',  '`
+Default value: `null`
 
-A string value that is used to do something with whatever.
+path to json file that wants to be validated.
 
-#### options.punctuation
+#### options.schema
 Type: `String`
-Default value: `'.'`
+Default value: `null`
 
-A string value that is used to do something else with whatever else.
+jsonschema path.
 
-### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+### Single File
 
 ```js
 grunt.initConfig({
   jsonschema: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    all:{
+      options: {
+        file: 'test/files/person.json',
+        schema: 'test/schemas/person.json'
+      }
+    }
+  }
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+### Multiple Files and multiple schemas
 
 ```js
 grunt.initConfig({
   jsonschema: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    all:{
+      options: {
+        files: [
+          {
+            file: 'test/files/person.json',
+            schema: 'test/schemas/person.json'
+          },
+          {
+            file: 'test/files/posts.json',
+            schema: 'test/schemas/posts.json'
+          }
+        ]
+      }
+    }
+  }
+});
+```
+
+### Multiple Files one schema
+
+```js
+grunt.initConfig({
+  jsonschema: {
+    all:{
+      options: {
+        files: [
+          'test/files/person.json',
+          'test/files/person2.json'
+        ],
+        schema: {
+          main: 'test/schemas/person_ref.json',
+          refs: [
+            'test/schemas/address.json'
+          ]
+        }
+      }
+    }
+  }
+});
+```
+
+### Complex Schema
+
+```js
+grunt.initConfig({
+  jsonschema: {
+    all:{
+      options: {
+        file: 'test/files/person.json',
+        schema: {
+          main: 'test/schemas/person_ref.json',
+          refs: [
+            'test/schemas/address.json'
+          ]
+        }
+      }
+    }
+  }
 });
 ```
 
@@ -87,3 +133,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 _(Nothing yet)_
+
