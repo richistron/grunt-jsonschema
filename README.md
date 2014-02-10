@@ -1,4 +1,5 @@
 # grunt-jsonschema v0.0.1
+[![Build Status](https://travis-ci.org/richistron/grunt-jsonschema.png?branch=master)](https://travis-ci.org/richistron/grunt-jsonschema)
 
 > Simple and fast JSON schema validator for grunt.
 
