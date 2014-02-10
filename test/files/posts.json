@@ -1,0 +1,28 @@
+{
+  "title": "richistron's blog",
+  "description": "some random dude",
+  "posts": [
+    {
+      "id": "posts/hello-world",
+      "title": "hello world",
+      "body": "Bla bla bla",
+      "sections": ["javascript","stuff"]
+    },
+    {
+      "id": "posts/hello-world-part-2",
+      "title": "hello world part 2",
+      "body": "Bla bla bla 2 you",
+      "sections": ["javascript","stuff"]
+    }
+  ],
+  "sections": {
+    "javascript": {
+      "url": "sections/javascript",
+      "description": "javascript section and stuff"
+    },
+    "stuff": {
+      "url": "sections/javascript",
+      "description": "javascript section and stuff"
+    }
+  }
+}

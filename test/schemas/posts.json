@@ -1,0 +1,22 @@
+{
+  "id": "/Posts",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "posts": {
+      "type": "array",
+      "required": true
+    },
+    "sections": {
+      "type": "object",
+      "required": true
+    }
+  }
+}

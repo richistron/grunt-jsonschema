@@ -30,22 +30,54 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     jsonschema: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
+      options: {
+        file: 'test/files/person.json',
+        schema: 'test/schemas/person.json'
       },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!',
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
+      // single: {
+      //   options: {
+      //     file: 'test/files/person.json',
+      //     schema: 'test/schemas/person.json'
+      //   }
+      // },
+      // multiple: {
+      //   options: {
+      //     files: [
+      //       {
+      //         'file': 'test/files/person.json',
+      //         'schema': 'test/schemas/person.json'
+      //       }
+      //     ]
+      //   },
+      // },
+      // ref: {
+      //   options: {
+      //     file: 'test/files/person.json',
+      //     schema: {
+      //       main: 'test/schemas/person_ref.json',
+      //       refs: [
+      //         'test/schemas/address.json'
+      //       ]
+      //     }
+      //   }
+      // },
+      // complexref: {
+      //   options: {
+      //     file: 'test/files/person.json',
+      //     schema: {
+      //       main: 'test/schemas/person_ref.json',
+      //       refs: [
+      //         'test/schemas/address.json'
+      //       ]
+      //     }
+      //   }
+      // },
+      // posts: {
+      //   options: {
+      //     file: 'test/files/posts.json',
+      //     schema: 'test/schemas/posts.json'
+      //   }
+      // },
     },
 
     // Unit tests.

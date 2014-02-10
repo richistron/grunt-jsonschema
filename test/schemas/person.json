@@ -1,0 +1,20 @@
+{
+  "id": "/SimplePerson",
+  "type": "object",
+  "properties": {
+    "name": {"type": "string"},
+    "address": {
+      "type": "object",
+      "properties": {
+        "lines": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "zip": {"type": "string"},
+        "city": {"type": "string"},
+        "country": {"type": "string", "required": true}
+      }
+    },
+    "votes": {"type": "integer", "minimum": 1}
+  }
+}
