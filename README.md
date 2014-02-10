@@ -1,4 +1,4 @@
-# grunt-jsonschema
+# grunt-jsonschema v0.0.1
 
 > Simple and fast JSON schema validator for grunt.
 
