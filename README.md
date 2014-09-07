@@ -1,10 +1,12 @@
 # grunt-jsonschema v0.0.3
+[![npm version](http://img.shields.io/npm/v/grunt-jsonschema.svg)](https://www.npmjs.org/package/grunt-jsonschema)
 [![Build Status](https://travis-ci.org/richistron/grunt-jsonschema.png?branch=master)](https://travis-ci.org/richistron/grunt-jsonschema)
+[![Node Dependencies](https://david-dm.org/richistron/grunt-jsonschema.png)](https://david-dm.org/richistron/grunt-jsonschema)
 
 > Simple and fast JSON schema validator for grunt.
 
 ## Getting Started
-This plugin requires Grunt `~0.4.2`
+This plugin requires Grunt `~0.4.5`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
