@@ -1,4 +1,4 @@
-# grunt-jsonschema v0.0.3
+# grunt-jsonschema v0.0.4
 [![npm version](http://img.shields.io/npm/v/grunt-jsonschema.svg)](https://www.npmjs.org/package/grunt-jsonschema)
 [![Build Status](https://travis-ci.org/richistron/grunt-jsonschema.png?branch=master)](https://travis-ci.org/richistron/grunt-jsonschema)
 [![Node Dependencies](https://david-dm.org/richistron/grunt-jsonschema.png)](https://david-dm.org/richistron/grunt-jsonschema)
@@ -153,5 +153,5 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
 
+* v0.0.4 -> Sunday, September 7, 2014 | [Release notes](https://github.com/richistron/grunt-jsonschema/pull/7)

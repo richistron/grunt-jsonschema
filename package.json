@@ -1,7 +1,7 @@
 {
   "name": "grunt-jsonschema",
   "description": "Simple and fast JSON schema validator for grunt.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/richistron/grunt-jsonschema",
   "author": {
     "name": "Ricardo Rivas G.",
