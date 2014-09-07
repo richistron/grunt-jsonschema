@@ -30,7 +30,47 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     jsonschema: {
-      all:{
+      single_file:{
+        options: {
+          file: 'test/files/person.json',
+          schema: 'test/schemas/person.json'
+        }
+      },
+      multiple_files_multiple_schemas:{
+        options: {
+          files: [
+            {
+              file: 'test/files/person.json',
+              schema: 'test/schemas/person.json'
+            },
+            {
+              file: 'test/files/posts.json',
+              schema: 'test/schemas/posts.json'
+            }
+          ]
+        }
+      },
+      multiple_files_one_schemas: {
+        options: {
+          schema: 'test/schemas/person.json',
+          files: [
+            'test/files/person.json',
+            'test/files/person2.json'
+          ]
+        }
+      },
+      one_file_one_schema: {
+        options: {
+          file: 'test/files/person.json',
+          schema: {
+            main: 'test/schemas/person_ref.json',
+            refs: [
+              'test/schemas/address.json'
+            ]
+          }
+        }
+      },
+      multiple_files_complex_schema: {
         options: {
           files: [
             'test/files/person.json',
